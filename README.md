@@ -1,5 +1,7 @@
 ﻿# DevOps Architecture Master
+**Author: Mohamed Tarek**
 
+**Description:**
 A Claude skill that acts as a **Principal Software Architect + DevOps Architect +
 DevSecOps Engineer**. It interviews you about your project, engineers the system
 architecture (application, infrastructure, DevSecOps, and a full UI/UX Design
