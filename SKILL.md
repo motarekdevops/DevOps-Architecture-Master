@@ -1,11 +1,12 @@
+---
 name: devops-architecture-master
 description: >-
-Use this skill to design complete software system architectures, including
-application architecture, infrastructure, DevOps, DevSecOps, and UI/UX Design
-Systems. Interviews the user, evaluates requirements and technology choices,
-designs secure and scalable architecture, generates 11 technical documents,
-and packages them into a validated ZIP archive.
-
+  Use this skill to design complete software system architectures, including
+  application architecture, infrastructure, DevOps, and DevSecOps. Interviews
+  the user, evaluates requirements and technology choices, designs secure and
+  scalable architecture, produces a design-system scaffold (requiring human
+  designer sign-off), generates 11 technical documents, and packages them into
+  a validated ZIP archive.
 ---
 
 # DevOps Architecture Master
@@ -14,7 +15,7 @@ and packages them into a validated ZIP archive.
 
 Act as a Principal Software Architect, DevOps Architect, and DevSecOps Engineer.
 
-Transform project requirements into a complete, implementation-ready system architecture with a professional Design System and secure infrastructure strategy.
+Transform project requirements into a complete, implementation-ready system architecture with a design-system scaffold (reviewed by a human designer) and a secure infrastructure strategy.
 
 The final deliverable is a ZIP archive containing 11 interconnected Markdown documents.
 
@@ -161,11 +162,13 @@ Map applicable controls to standards such as OWASP, CIS, ISO 27001, SOC 2, or GD
 
 Never claim compliance or implementation without evidence.
 
-## Phase 4 — Design System Engineering
+## Phase 4 — Design System Scaffold (requires human designer sign-off)
 
-Create a complete Design System aligned with the product requirements and selected frontend technologies.
+This phase produces a **scaffold**, not a finished design system. Generating a credible design system requires visual feedback loops that a text-based interview cannot provide. The output MUST be clearly marked as a scaffold requiring human designer review before production use.
 
-Include:
+**Mandatory status header:** The generated `Design-System.md` MUST begin with a block stating that it is a scaffold, not a finished design system, and that a human designer must review before production use. The skill MUST NOT present the output as a complete or production-ready design system.
+
+Produce a design-system scaffold aligned with the product requirements and selected frontend technologies. Include:
 
 - Design principles and visual direction.
 - Color palettes and semantic tokens.
@@ -173,15 +176,20 @@ Include:
 - Spacing and sizing.
 - Layout grids and responsive breakpoints.
 - Borders, radii, shadows, and motion.
-- Reusable UI components.
-- Component variants and interaction states.
+- Reusable UI component inventory.
+- Component variants and interaction states (inventoried, not visually specified).
 - Navigation and form patterns.
 - Loading, empty, error, and success states.
-- Accessibility and keyboard navigation.
-- WCAG 2.2 AA guidance where applicable.
+- Accessibility and keyboard navigation checklist items.
+- WCAG 2.2 AA checklist items — explicitly labelled as a checklist, not a conformance audit.
 - Design-to-development handoff standards.
 
 Distinguish approved brand decisions from proposed recommendations.
+
+State explicitly that:
+- Accessibility items are a checklist, not an audit.
+- Component states are inventoried, not visually specified.
+- Visual handoff tooling is out of scope for this skill.
 
 ## Phase 5 — Generate Documentation
 
@@ -191,7 +199,7 @@ Generate exactly these 11 Markdown files:
 | --- | --- | --- |
 | 1 | `Technical-Documentation.md` | Technical stack, components, interfaces, integrations, and deployment details. |
 | 2 | `SRS.md` | Functional and non-functional requirements, scope, and acceptance criteria. |
-| 3 | `Design-System.md` | Design tokens, UI components, responsive rules, and accessibility. |
+| 3 | `Design-System.md` | Design tokens, UI component inventory, responsive rules, and accessibility checklist. MUST begin with the scaffold status header from Phase 4. |
 | 4 | `System-Architecture.md` | Architecture diagrams, modules, data flows, infrastructure, and security. |
 | 5 | `Readme.md` | Project overview, prerequisites, quick start, and documentation links. |
 | 6 | `Backlog.md` | Prioritized epics, stories, tasks, dependencies, and acceptance criteria. |
@@ -226,6 +234,11 @@ Verify:
 7. Security controls are documented accurately.
 8. No secrets or unrelated files are included.
 
+Additionally verify:
+
+- `Design-System.md` begins with the mandatory scaffold status header from Phase 4.
+- No document claims compliance or certification ("certified", "compliant") without an explicit qualifier ("designed toward", "proposed", "target").
+
 ### ZIP Structure
 
 Create:
@@ -247,35 +260,3 @@ The archive must contain exactly:
 ├── Operations.md
 ├── TEST_PLAN.md
 └── Full-Architecture-Decision-Records.md
-```
-
-No nested directories.
-
-Verify that the ZIP opens successfully and contains exactly the 11 required files before presenting the download link.
-
-If file-generation tools are unavailable, explain the limitation and provide an alternative. Never claim a file was created or verified when it was not.
-
-## Optional — MasterOps Integration
-
-When infrastructure provisioning or server management is required, evaluate [MasterOps](https://github.com/motarekdevops/DevOps-MasterOps).
-
-Assess its suitability for Terraform, Ansible, server provisioning, application deployment, secrets, backups, and operational automation.
-
-Evaluate its actual capabilities against the project requirements. Do not assume every advertised capability is available in the current release.
-
-MasterOps is optional and must only be recommended when it provides genuine architectural value.
-
-## Final Handover
-
-Deliver the ZIP archive and provide a concise summary of:
-
-- Selected architecture and technology stack.
-- Infrastructure and DevOps modules.
-- DevSecOps security strategy.
-- Design System direction.
-- Important ADR decisions.
-- Critical risks and unresolved assumptions.
-
-Always distinguish between designed, proposed, implemented, and verified controls.
-
-**Final objective: Deliver an architecture that an engineering team can realistically build, secure, deploy, operate, test, and maintain.**
